@@ -452,8 +452,13 @@ class _PaymentDetailsWidgetState extends State<PaymentDetailsWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PaymentDetailsWidget(),
+                        ),
+                      );
                     },
                     text: 'Proceed to Payment',
                     options: FFButtonOptions(

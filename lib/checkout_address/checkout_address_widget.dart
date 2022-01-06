@@ -2,6 +2,8 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
+import '../payment_details/payment_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -37,10 +39,20 @@ class _CheckoutAddressWidgetState extends State<CheckoutAddressWidget> {
         actions: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-            child: Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.white,
-              size: 24,
+            child: InkWell(
+              onTap: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NavBarPage(initialPage: 'CartPage'),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.white,
+                size: 24,
+              ),
             ),
           ),
         ],
@@ -385,8 +397,13 @@ class _CheckoutAddressWidgetState extends State<CheckoutAddressWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PaymentDetailsWidget(),
+                        ),
+                      );
                     },
                     text: 'Proceed to Payment Details',
                     options: FFButtonOptions(

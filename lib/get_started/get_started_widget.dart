@@ -1,3 +1,4 @@
+import '../authentication/authentication_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -41,13 +42,23 @@ class _GetStartedWidgetState extends State<GetStartedWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      'SKIP >>>',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'EB_Garamond',
-                        color: Color(0xFFEBE9E9),
-                        fontWeight: FontWeight.w300,
-                        useGoogleFonts: false,
+                    InkWell(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AuthenticationWidget(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'SKIP >>>',
+                        style: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'EB_Garamond',
+                          color: Color(0xFFEBE9E9),
+                          fontWeight: FontWeight.w300,
+                          useGoogleFonts: false,
+                        ),
                       ),
                     ),
                   ],

@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../my_wish_list/my_wish_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -40,10 +41,20 @@ class _CartPageWidgetState extends State<CartPageWidget> {
         actions: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-            child: Icon(
-              Icons.favorite_border,
-              color: Colors.white,
-              size: 24,
+            child: InkWell(
+              onTap: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyWishListWidget(),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.favorite_border,
+                color: Colors.white,
+                size: 24,
+              ),
             ),
           ),
         ],

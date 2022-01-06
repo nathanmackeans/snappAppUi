@@ -25,11 +25,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           style: FlutterFlowTheme.bodyText1.override(
             fontFamily: 'EB_Garamond',
             color: Colors.white,
-            fontSize: 26,
+            fontSize: 25,
             useGoogleFonts: false,
           ),
         ),
-        actions: [],
+        actions: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+            child: Icon(
+              Icons.logout,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+        ],
         centerTitle: true,
         elevation: 4,
       ),

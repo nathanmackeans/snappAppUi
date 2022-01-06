@@ -53,13 +53,23 @@ class _WalkthroughWidgetState extends State<WalkthroughWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text(
-                                'SKIP >>>',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'EB_Garamond',
-                                  color: Color(0xFFEBE9E9),
-                                  fontWeight: FontWeight.w300,
-                                  useGoogleFonts: false,
+                              InkWell(
+                                onTap: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => GetStartedWidget(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'SKIP >>>',
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'EB_Garamond',
+                                    color: Color(0xFFEBE9E9),
+                                    fontWeight: FontWeight.w300,
+                                    useGoogleFonts: false,
+                                  ),
                                 ),
                               ),
                             ],

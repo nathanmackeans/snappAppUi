@@ -1,6 +1,8 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -118,8 +120,33 @@ class _EnterOTPWidgetState extends State<EnterOTPWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        if (!formKey.currentState.validate()) {
+                          return;
+                        }
+                        if (textController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Enter SMS verification code.'),
+                            ),
+                          );
+                          return;
+                        }
+                        final phoneVerifiedUser = await verifySmsCode(
+                          context: context,
+                          smsCode: textController.text,
+                        );
+                        if (phoneVerifiedUser == null) {
+                          return;
+                        }
+                        await Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                NavBarPage(initialPage: 'HomeWithPageview'),
+                          ),
+                          (r) => false,
+                        );
                       },
                       text: 'Continue',
                       options: FFButtonOptions(
